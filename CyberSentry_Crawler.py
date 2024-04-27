@@ -3,6 +3,12 @@ from aiohttp import ClientSession
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 
+async def handle_crawling(target_url, working_proxies):
+    print(Fore.GREEN + "Starting Crawleg...")
+    # If run_sqli_auditing requires proxies, make sure to pass them
+    await run_sqli_auditing(target_url, working_proxies)
+
+
 async def fetch_url(session, url):
     """
     Asynchronously fetches a URL using the provided session and returns the page content and the final URL.

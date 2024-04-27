@@ -29,7 +29,7 @@ async def test_proxy(proxy):
                 else:
                     print(Fore.RED + f"Failed to connect via {proxy} with status {response.status}")
     except Exception as e:
-        print(Fore.YELLOW + f"Proxy {proxy} failed with exception: {e}")
+        print(Fore.MAGENTA + f"Proxy {proxy} failed with exception: {e}")
     return None
 
 async def load_and_test_proxies():

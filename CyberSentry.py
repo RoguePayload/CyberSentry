@@ -6,6 +6,7 @@ from colorama import Fore, init
 import importlib
 from CyberSentry_ProxyChains import load_and_test_proxies
 from CyberSentry_Crawler import main_crawler  # Make sure this import reflects the actual function and file names
+from CyberSentry_SQLI_Auditing import run_sqli_auditing
 
 # Initialize colorama
 init(autoreset=True)
@@ -13,6 +14,30 @@ init(autoreset=True)
 def clear_screen():
     """Clears the console screen."""
     os.system('cls' if os.name == 'nt' else 'clear')
+
+
+def load_user_agents():
+    user_agents = []
+    try:
+        with open('CyberSentry_USER_AGENTS.txt', 'r') as file:
+            user_agents = [line.strip() for line in file if line.strip()]
+    except FileNotFoundError:
+        print("User agents file not found.")
+    except Exception as e:
+        print(f"Failed to load user agents: {e}")
+    return user_agents
+
+def load_sqli_payloads():
+    payloads = []
+    try:
+        with open('sqli_payloads.txt', 'r') as file:
+            payloads = [line.strip() for line in file if line.strip()]
+    except FileNotFoundError:
+        print("SQLi payloads file not found.")
+    except Exception as e:
+        print(f"Failed to load SQLi payloads: {e}")
+    return payloads
+
 
 async def handle_crawl_page(target_url):
     print(Fore.GREEN + "CyberSentry Crawler")
@@ -26,6 +51,7 @@ async def handle_crawl_page(target_url):
         depth, breadth = 3, 5
     await main_crawler(target_url, depth, breadth)
     print(Fore.GREEN + "Crawling complete. Returning to main menu...")
+
 def display_intro():
     """Displays the introductory text and gets the target URL from the user."""
     clear_screen()
@@ -48,28 +74,27 @@ async def main_menu(target_url):
             print(Fore.GREEN + f"Using Proxies: {proxy_count}")
         else:
             print(Fore.RED + "No working proxies configured.")
-        print(Fore.YELLOW + "\n1) Crawl Site & Index Pages")
-        print(Fore.YELLOW + "2) URL Injection Auditing")
-        print(Fore.YELLOW + "3) Form Injection Auditing")
-        print(Fore.YELLOW + "4) Template Injection Auditing")
-        print(Fore.YELLOW + "5) XML Injection Auditing")
-        print(Fore.YELLOW + "6) OAuth Injection Auditing")
-        print(Fore.YELLOW + "7) Manage User Agents")
-        print(Fore.YELLOW + "8) Manage Proxy Chains")
-        print(Fore.YELLOW + "9) Run All Scans Automatically")
-        print(Fore.YELLOW + "10) Generate Reports")
-        print(Fore.YELLOW + "11) Change Target URL")
-        print(Fore.RED + "12) Exit")
-        
-        choice = input(Fore.YELLOW + "Select an option: ")
-        await handle_menu_choice(choice, target_url)
+        print(Fore.YELLOW + "\n1) Crawl Site & Index Pages <- Do This First!!!")
+        print(Fore.CYAN + "Please Select What Test & Audit You Want AFTER Crawling The Site:")
+        print(Fore.YELLOW + "2) SQL Injection Auditing")
+        print(Fore.YELLOW + "3) XSS (Cross Site Scripting) Auditing")
+        print(Fore.YELLOW + "4) CSRF (Cross Site Request Forgery) Auditing")
+        print(Fore.YELLOW + "5) Template Injection Auditing")
+        print(Fore.YELLOW + "6) RCE (Remote Code Execution) Auditing")
+        print(Fore.YELLOW + "7) Runn ALL Scans Automatically")
+        print(Fore.GREEN + "8) Generate Bug Report <- This is Based On Tools You Used")
+        print(Fore.MAGENTA + "9) Change Target URL")
+        print(Fore.RED + "10) Close Cyber Sentry")
 
-async def handle_menu_choice(choice, target_url):
+        choice = input(Fore.CYAN + "Select an option: ")
+        await handle_menu_choice(choice, target_url, working_proxies)
+
+async def handle_menu_choice(choice, target_url, working_proxies):
     """Handles the selected menu choice more explicitly."""
     if choice == '1':
         await handle_crawl_page(target_url)
     elif choice == '2':
-        await handle_url_injection(target_url)
+        await handle_sqli_auditing(target_url, working_proxies)
     elif choice == '3':
         await handle_form_injection(target_url)
     elif choice == '4':
@@ -110,9 +135,17 @@ async def handle_crawl_site(target_url):
         time.sleep(1)
 
 # Placeholder functions for other menu choices (similar to handle_crawl_site)
-async def handle_url_injection(target_url):
-    print(Fore.GREEN + "URL Injection auditing...")
-    time.sleep(1)  # Simulate task
+async def handle_sqli_auditing(target_url, working_proxies):
+    # Load user agents and payloads
+    user_agents = load_user_agents()  # Ensure this function returns a list of user agents
+    payloads = load_sqli_payloads()   # Ensure this function returns a list of SQLi payloads
+    print(Fore.MAGENTA + "Enabling Proxy Chains!")
+    time.sleep(1)
+    print(Fore.CYAN + "Enabling Random User Agent!")
+    time.sleep(1)
+    print(Fore.GREEN + "Starting SQL Injection auditing...")
+    # Pass all required parameters to the function
+    await run_sqli_auditing(target_url, working_proxies, user_agents, payloads)
 
 async def handle_form_injection(target_url):
     print(Fore.GREEN + "Form Injection auditing...")
