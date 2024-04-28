@@ -2,11 +2,13 @@ import asyncio
 import os
 import sys
 import time
+import glob
 from colorama import Fore, init
 import importlib
 from CyberSentry_ProxyChains import load_and_test_proxies
 from CyberSentry_Crawler import main_crawler  # Make sure this import reflects the actual function and file names
 from CyberSentry_SQLI_Auditing import run_sqli_auditing
+from CyberSentry_XSS_Auditing import run_xss_auditing
 
 # Initialize colorama
 init(autoreset=True)
@@ -15,6 +17,25 @@ def clear_screen():
     """Clears the console screen."""
     os.system('cls' if os.name == 'nt' else 'clear')
 
+def cleanup_temp_files():
+    # Delete any files that start with "temp_"
+    for temp_file in glob.glob('temp_*'):
+        try:
+            os.remove(temp_file)
+            print(Fore.GREEN + f"Deleted temporary file: {temp_file}")
+        except Exception as e:
+            print(Fore.RED + f"Failed to delete {temp_file}: {e}")
+
+def close_application():
+    print(Fore.RED + "Shutting Down Systems...")
+    
+    # Cleanup temporary files
+    cleanup_temp_files()
+    
+    # Additional cleanup tasks can be added here
+
+    print(Fore.YELLOW + "Cleanup complete. Exiting application.")
+    sys.exit()  # Properly exit the program
 
 def load_user_agents():
     user_agents = []
@@ -38,17 +59,37 @@ def load_sqli_payloads():
         print(f"Failed to load SQLi payloads: {e}")
     return payloads
 
+def load_xss_payloads():
+    payloads = []
+    try:
+        with open('xss_payloads.txt', 'r') as file:
+            payloads = [line.strip() for line in file if line.strip()]
+    except FileNotFoundError:
+        print(Fore.YELLOW + "XSS Payloads File Not Found.")
+    except Exception as e:
+        print(Fore.RED + "Failed to load XSS Payloads: {e}")
+    return payloads
 
 async def handle_crawl_page(target_url):
     print(Fore.GREEN + "CyberSentry Crawler")
+    depth_input = input(Fore.CYAN + "How Deep Would You Like To Scan {MAX 10}: ")
+    breadth_input = input(Fore.YELLOW + "How Broad Would You Like To Scan {MAX 15}: ")
+    print(Fore.GREEN + f"Received depth: '{depth_input}' and breadth: '{breadth_input}'")  # Debugging output
+
     try:
-        depth = int(input("How Deep Would You Like To Scan {MAX 10}: "))
-        breadth = int(input("How Broad Would You Like To Scan {MAX 15}: "))
-        depth = min(10, depth)  # Ensure max depth is 10
-        breadth = min(15, breadth)  # Ensure max breadth is 15
-    except ValueError:
-        print(Fore.RED + "Invalid input. Using default values: Depth 3, Breadth 5.")
-        depth, breadth = 3, 5
+        depth = int(depth_input.strip())
+        breadth = int(breadth_input.strip())
+
+        if depth > 10:
+            print(Fore.RED + "Depth set to the maximum of 10.")
+            depth = 10
+        if breadth > 15:
+            print(Fore.RED + "Breadth set to the maximum of 15.")
+            breadth = 15
+    except ValueError as ve:
+        print(Fore.RED + f"Invalid input. Error: {ve}. Using default values: Depth 3, Breadth 5.")
+        depth, breadth = 3, 5  # Default values if invalid input
+
     await main_crawler(target_url, depth, breadth)
     print(Fore.GREEN + "Crawling complete. Returning to main menu...")
 
@@ -96,7 +137,7 @@ async def handle_menu_choice(choice, target_url, working_proxies):
     elif choice == '2':
         await handle_sqli_auditing(target_url, working_proxies)
     elif choice == '3':
-        await handle_form_injection(target_url)
+        await handle_xss_injection(target_url, working_proxies)
     elif choice == '4':
         await handle_template_injection(target_url)
     elif choice == '5':
@@ -110,15 +151,7 @@ async def handle_menu_choice(choice, target_url, working_proxies):
     elif choice == '9':
         await run_all_automatically(target_url)
     elif choice == '10':
-        await generate_reports(target_url)
-    elif choice == '11':
-        # Refresh the target URL
-        new_target_url = display_intro()
-        await main_menu(new_target_url)
-    elif choice == '12':
-        print(Fore.RED + "Exiting CyberSentry...")
-        time.sleep(1)
-        sys.exit()
+        close_application()
     else:
         print(Fore.RED + "Invalid option selected. Please try again.")
         time.sleep(1)
@@ -146,6 +179,16 @@ async def handle_sqli_auditing(target_url, working_proxies):
     print(Fore.GREEN + "Starting SQL Injection auditing...")
     # Pass all required parameters to the function
     await run_sqli_auditing(target_url, working_proxies, user_agents, payloads)
+
+async def handle_xss_injection(target_url, working_proxies):
+    user_agents = load_user_agents()
+    payloads = load_xss_payloads()
+    print(Fore.MAGENTA + "Enabling Proxy Chains!")
+    time.sleep(1)
+    print(Fore.CYAN + "Enabling Random User Agent!")
+    time.sleep(1)
+    print(Fore.GREEN + "Starting XSS Injection Auditing...")
+    await run_xss_auditing([target_url], payloads, user_agents, working_proxies)
 
 async def handle_form_injection(target_url):
     print(Fore.GREEN + "Form Injection auditing...")

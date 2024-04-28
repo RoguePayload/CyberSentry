@@ -2,6 +2,10 @@ import asyncio
 from aiohttp import ClientSession
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
+from colorama import Fore, init
+
+init(autoreset=True)
+
 
 async def handle_crawling(target_url, working_proxies):
     print(Fore.GREEN + "Starting Crawleg...")
@@ -42,10 +46,10 @@ async def crawl_page(session, url, depth, max_depth, breadth):
     links = [a['href'] for a in soup.find_all('a', href=True) if a['href'].startswith('http')]
     results = [(final_url, forms)] if links else []
 
-    print(f"Crawling {final_url} at depth {depth}...")  # Verbose output for each URL visited
+    print(Fore.CYAN + f"Crawling {final_url} at depth {depth}...")  # Verbose output for each URL visited
     for link in links[:breadth]:
         full_link = urljoin(final_url, link)
-        print(f"Following link from {final_url} to {full_link}")  # Verbose output for following links
+        print(Fore.MAGENTA + f"Following link from {final_url} to {full_link}")  # Verbose output for following links
         sub_results, sub_forms = await crawl_page(session, full_link, depth + 1, max_depth, breadth)
         results.extend(sub_results)
 
