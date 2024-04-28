@@ -29,7 +29,7 @@ async def test_xss(session, url, payload, proxy):
                 return 'Potential', target_url
             return 'Negative', target_url
     except Exception as e:
-        print(f"Error with {target_url}: {e}")
+        print(Fore.RED + f"Error with {target_url}: {e}")
         return 'Error', target_url
 
 async def run_xss_auditing(urls, payloads, user_agents, working_proxies):
